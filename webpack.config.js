@@ -8,10 +8,11 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: './build'
+    contentBase: './dist'
   },
 
   plugins: [
     new CleanWebpackPlugin(`${path}/bundle.*.js`),
+    HTMLPlugin
   ],
 };
