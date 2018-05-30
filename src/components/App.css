@@ -4,8 +4,15 @@
 
 header {
   background: grey;
+  height: 5em;
 }
 
 h1 {
+  font-size: 18pt;
+  text-align: center;
+}
+
+h2 {
   font-size: 14pt;
+  
 }
