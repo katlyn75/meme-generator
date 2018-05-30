@@ -1,5 +1,5 @@
 /* eslint-env node */
-require('dotenv').config();
+//require('dotenv').config();
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -12,7 +12,7 @@ module.exports = {
     filename: 'bundle.*.js'
   },
   devServer: {
-    contentBase: './dist'
+    contentBase: './build'
   },
   devtool: 'inline-source-map',
   plugins: [
