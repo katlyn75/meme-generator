@@ -9,6 +9,10 @@ export default class App extends Component {
           Meme Generator
           </h1>
         </header>
+
+        <h2 className="app-image">
+        Hilarious Picture
+        </h2>
       </div>
     );
   }
