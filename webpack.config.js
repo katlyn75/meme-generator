@@ -12,14 +12,14 @@ module.exports = {
     filename: 'bundle.*.js'
   },
   devServer: {
-    contentBase: './build'
+    contentBase: './dist'
   },
   devtool: 'inline-source-map',
   plugins: [
     new CleanWebpackPlugin(`${path}/bundle.*.js`),
   
     new HtmlWebpackPlugin({
-      title: 'Meme',
+      title: 'Meme Generator',
       filename: 'dist/index.html'
     })],
   
