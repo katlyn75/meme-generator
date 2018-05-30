@@ -15,7 +15,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Memes',
       filename: 'dist/index.html'
-    })
+    }),
+    require('precss'),
+    require('autoprefixer')
   ],
   module: {
     rules: [
@@ -35,7 +37,10 @@ module.exports = {
           },
           {
             loader: 'css-loader'
-          }
+          },
+          {
+            loader: 'post-css'
+          },
         ]
       }
     ]
