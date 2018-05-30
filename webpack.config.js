@@ -1,21 +1,30 @@
 /* eslint-env node */
+require('dotenv').config();
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+//const webpack = require('webpack');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.*.js'
   },
   devServer: {
     contentBase: './dist'
   },
+  devtool: 'inline-source-map',
   plugins: [
     new CleanWebpackPlugin(`${path}/bundle.*.js`),
-    'HTML Plugin'
-  ],
+  
+    new HtmlWebpackPlugin({
+      title: 'Meme',
+      filename: 'dist/index.html'
+    })],
+  
   module: {
-    rules: [
+    rules:[
       {
         test: /\.js$/,
         exclude: /node_modules/,

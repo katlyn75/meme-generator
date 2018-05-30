@@ -43,5 +43,5 @@ For this assignment:
 * Bespoke webpack config with commit history **2pts**
 * Functionality works for the end user **2pts**
 * Curiosity/Going Beyond What we did in class **2pts**
-* Idomatic React/JSX/JavaScript **2pts**
+* Idiomatic React/JSX/JavaScript **2pts**
 * Clean code - using destructuring and other techniques to reduce duplication and redundancy **2pts**
