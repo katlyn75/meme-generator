@@ -2,6 +2,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -16,8 +17,6 @@ module.exports = {
       title: 'Memes',
       filename: 'dist/index.html'
     }),
-    require('precss'),
-    require('autoprefixer')
   ],
   module: {
     rules: [
@@ -33,13 +32,10 @@ module.exports = {
         exclude:/node-modules/,
         use: [
           {
-            loader: 'style'
+            loader: 'style-loader'
           },
           {
             loader: 'css-loader'
-          },
-          {
-            loader: 'post-css'
           },
         ]
       }
