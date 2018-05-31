@@ -14,10 +14,14 @@ export default class App extends Component {
       image: 'http://i0.kym-cdn.com/entries/icons/mobile/000/015/878/thatsnoneofmy.jpg',
       text: 'I don/t always drink tea' 
     };
-
-
   }
-  
+
+  handleBackground({ target }) {
+    this.setState({
+      background: target.value
+    });
+  }
+
   
   handleImageSrc({ target }) {
     this.setStage({ image: target.value });
@@ -39,7 +43,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { image } = this.state;
+    const { background, image } = this.state;
 
     return (
       <main>
@@ -52,8 +56,9 @@ export default class App extends Component {
               <input onChange={event => this.handleImageSrc(event)} placeholder="Image URL"/>
             </label>
             <label>
-              Background:
-              <input name="url" onChange={this.handleUpload}/>
+              Image:
+              <input name="file" onChange={this.handleUpload}/>
+              <input name="url" onChange={this.handleBackground}/>
             </label> 
           </section>
           <fieldset>
