@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
-import './App.css';
 import dom2image from 'dom-to-image';
 import fileSaver from 'file-saver';
 import './App.css';
 
+
 export default class App extends Component {
 
-  constructor(){
+  constructor() {
     super();
 
     this.state = {
-      content: 'Meme your mom',
-      image: 'http://i0.kym-cdn.com/entries/icons/mobile/000/015/878/thatsnoneofmy.jpg',
-      text: 'I don/t always drink tea' 
+      header: 'I don/t always drink tea',
+      footer: 'because it tastes terrible.'
+      image: 'http://i0.kym-cdn.com/entries/icons/mobile/000/015/878/thatsnoneofmy.jpg', 
     };
   }
+  
 
   handleBackground({ target }) {
     this.setState({
@@ -27,6 +28,12 @@ export default class App extends Component {
     this.setStage({ image: target.value });
   }
 
+  handleExport() {
+    dom2image.toMeme(this.imageExport).then(meme => {
+      fileSaver.saveAs(meme, 'meme.png');
+    });
+  }
+
   handleUpload({ target }) {
     const reader = new FileReader();
 
@@ -36,29 +43,31 @@ export default class App extends Component {
     };
   }
 
-  handleExport() {
-    dom2image.toMemes(this.imageExport).then(memes => {
-      fileSaver.saveAs(memes, 'meme.png');
-    });
-  }
 
   render() {
-    const { background, image } = this.state;
+    const { background, image, content, current } = this.state;
+
+    //const meme = {
+    //  text: content,
+    //  f: current
+    //};
 
     return (
       <main>
-        <h1 className="app-title">
-          Make your Meme
-        </h1>
         <div className="meme">
-          <section>
+          <header>
+            <h1 className="app-title">
+            Meme-Maker
+            </h1>
+          </header>
+          <section className="search-bars">
             <label>
-              <input onChange={event => this.handleImageSrc(event)} placeholder="Image URL"/>
-            </label>
-            <label>
-              Image:
-              <input name="file" onChange={this.handleUpload}/>
-              <input name="url" onChange={this.handleBackground}/>
+              Image File Upload:
+              <input name="file" onChange={this.handleUpload} placeholder="File"/>
+              Image URL:
+              <input name="url" onChange={this.handleBackground} placeholder="URL"/>
+              Meme Text:
+              <input onChange={event => this.handleImageSrc(event)} placeholder="Meme Text"/>
             </label> 
           </section>
           <fieldset>
