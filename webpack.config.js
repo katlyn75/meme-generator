@@ -1,6 +1,7 @@
 /* eslint-env node */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
 module.exports = {
@@ -13,9 +14,10 @@ module.exports = {
     contentBase: './dist'
   },
   plugins:[
+    new CleanWebpackPlugin(`${path}/bundle.*.js`),
     new HtmlWebpackPlugin({
-      title: 'Memes',
-      filename: 'dist/index.html'
+      title: 'Meme-Maker',
+      filename: '.dist/index.html'
     }),
   ],
   module: {
@@ -28,6 +30,17 @@ module.exports = {
         }
       },
       {
+        test: /\.(png|jpg|gif)$/,
+        exclude: /node_modules/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: 'dirname/[hash].[ext]'
+          }
+        }
+        ]
+      },
+      {
         test:/\.css$/,
         exclude:/node-modules/,
         use: [
@@ -36,7 +49,7 @@ module.exports = {
           },
           {
             loader: 'css-loader'
-          },
+          }
         ]
       }
     ]
