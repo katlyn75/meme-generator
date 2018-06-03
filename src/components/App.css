@@ -1,18 +1,27 @@
 .App {
   text-align: center;
+  width: 95%;
 }
 
 header {
-  background: grey;
-  height: 5em;
+  background: black;
+  height: 7em;
 }
 
 h1 {
   font-size: 24pt;
   text-align: center;
+  padding-top: 1em;
 }
 
 .image {
   height: auto;
-  max-width: 90%;
+  max-width: 95%;
 }
+
+.search-bars {
+  width: 95%;
+  padding: 1em;
+  display: inline-flex;
+}
+

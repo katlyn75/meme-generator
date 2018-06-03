@@ -1,5 +1,12 @@
 body {
   font-family: sans-serif;
   color: blue;
-  padding-left: 2em;
 }
+
+input {
+  height: 3em;
+  text-align: center;
+  font-size: 10pt;
+}
+
+
