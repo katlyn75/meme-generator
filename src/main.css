@@ -3,14 +3,11 @@ body {
   color: blue;
 }
 
-input {
+.input {
   height: 3em;
+  font-size: 14pt;
   text-align: center;
-  font-size: 10pt;
 }
 
-footer {
-  color: black;
-}
 
 
