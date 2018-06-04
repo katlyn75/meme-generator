@@ -18,9 +18,9 @@ export default class App extends Component {
     };
   }
 
-  //handleImageChange({ target }) {
-  //  this.setState({ text: target.value });
-  //} 
+  handleNameChange({ target }) {
+    this.setState({ text: target.value });
+  } 
 
   handleColorChange({ target }) {
     this.setState({ color: target.value });
@@ -69,7 +69,7 @@ export default class App extends Component {
           </h1>
         </header>
         <section>
-          <div>
+          <div className="uploads" ref={node => this.ImageExport = node}>
             <label>
             File Upload:
               <input value={image} onChange={event => this.handleUpload(event)} placeholder="choose file"/>&nbsp;
@@ -77,13 +77,13 @@ export default class App extends Component {
             Upload File
               </button>
             Image URL: 
-              <input value={image} onChange={event => this.handleImageSrc(event)} placeholder="enter url"/>&nbsp;
+              <input value={selected} onChange={event => this.handleImageSrc(event)} placeholder="enter url"/>&nbsp;
             </label>
             <button onClick={() => this.handleExport()}>
             Image URL
             </button>
           </div>
-          <div className="meme-text">
+          <div className="meme-text" ref={node => this.ImageExport = node}>
             <label>
               Meme Text:
               <input value={name} onChange={event => this.handelNameChange(event)}/>

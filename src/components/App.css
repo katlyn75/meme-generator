@@ -1,12 +1,12 @@
 header {
   background: black;
-  height: 7em;
+  height: 10em;
 }
 
 h1 {
   font-size: 30pt;
   text-align: center;
-  padding-top: 1em;
+  padding-top: 1.25em;
   color: blue;
 }
 
@@ -15,7 +15,6 @@ h1 {
   height: auto;
   max-width: 100%;
   text-align: center;
-  position: relative;
 }
 .uploads {
   font-size: 18pt;
@@ -28,6 +27,7 @@ h1 {
 
 .button {
   display: inline-flex;
+  display: flex space-around;
 }
 
 .meme-text {
@@ -37,7 +37,7 @@ h1 {
 
 .meme-header {
   z-index: 1;
-  color: white;
+  color: black;
   position: absolute;
   padding-top: .75em;
   font-size: 24pt;
@@ -46,11 +46,11 @@ h1 {
 
 .meme-footer {
   z-index: 1;
-  color: white;
+  color: black;
   position: relative;
   font-size: 24pt;
   width: 100%;
-  padding: 1em; 
+  padding-bottom: .75em; 
 }
 
 .export-button {
@@ -58,7 +58,6 @@ h1 {
   font-size: 14pt;
   text-align: center;
   color: blue;
-  padding: 1em 2em 1em 2em;
 }
 
 footer {
