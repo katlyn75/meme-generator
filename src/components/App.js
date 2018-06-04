@@ -12,18 +12,17 @@ export default class App extends Component {
     this.state = {
       header: 'I don\'t often drink tea...',
       footer: 'because it tastes terrible.',
-      image:'http://i0.kym-cdn.com/entries/icons/mobile/000/015/878/thatsnoneofmy.jpg',
-      text: '' 
+      image:'http://i0.kym-cdn.com/entries/icons/mobile/000/015/878/thatsnoneofmy.jpg' 
     };
   }
 
-  handleTextChange({ target }) {
+  /*handleTextChange({ target }) {
     this.setState({ text: target.value });
   } 
 
   handleColorChange({ target }) {
     this.setState({ color: target.value });
-  } 
+  }*/ 
   
   handleImageSrc({ target }) {
     this.setState({ image: target.value });
@@ -47,8 +46,8 @@ export default class App extends Component {
   }
      
   handleExport() {
-    dom2image.toMeme(this.imageExport).then(meme => {
-      fileSaver.saveAs(meme, 'meme.png');
+    dom2image.toBlob(this.imageExport).then(blob => {
+      fileSaver.saveAs(blob, 'meme.png');
     });
   }
 
@@ -58,38 +57,40 @@ export default class App extends Component {
 
     return (
       <main>
-        <div className="meme-maker">
-          <header>
-            <h1>
-              Meme-Maker
-            </h1>
-          </header>
-          <div className="inputs">
-            <label className="labels">
-              File Upload:
-              <input type="file" onChange={event => this.handleUpload(event)} placeholder="File"/>&nbsp;
-              Image URL: 
-              <input type="url" value={image} onChange={event => this.handleImgSrc(event)} placeholder="URL"/>&nbsp;
-              Meme Text:
-              <input type="text" onChange={event => this.handleImageSrc(event)}placeholder="Meme Text"/>&nbsp;
-            </label>
-          </div> 
-          <div className="image-container" ref={node => this.ImageExport = node}>
-            <section className="meme-header">
-              {header}
-            </section>
-            <img src={image}/>
-            <section className="meme-footer">
-              {footer}
-            </section>
+        <header>
+          <h1>
+          Meme-Maker
+          </h1>
+        </header>
+        <div>
+          <label className="uploads">
+            File Upload:
+            <input button type="file" onChange={event => this.handleUpload(event)} placeholder="choose file"/>&nbsp;
+            Image URL: 
+            <input button type="url" value={image} onChange={event => this.handleImageSrc(event)} placeholder="enter url"/>&nbsp;
+          </label>
+        </div>
+        <div className="meme-text">
+          <label>
+            Meme Text:
+            <input type="text" onChange={event => this.handleImageSrc(event)}placeholder="Meme Text"/>&nbsp;
             <button onClick={() => this.handleExport()}>
             Export meme
             </button>
-          </div>
-          <footer>
-            Meme Your Mom 2018
-          </footer>
+          </label>
+        </div> 
+        <div className="image-container" ref={node =>           this.ImageExport = node}>
+          <section className="meme-header">
+            {header}
+          </section>
+          <img src={image}/>
+          <section className="meme-footer">
+            {footer}
+          </section>
         </div>
+        <footer>
+            Meme Your Mom | 2018
+        </footer>
       </main>
     );
   }
