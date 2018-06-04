@@ -11,11 +11,12 @@ export default class App extends Component {
 
     this.state = {
       header: 'I don/t always drink tea',
-      footer: 'because it tastes terrible.'
-      image: 'http://i0.kym-cdn.com/entries/icons/mobile/000/015/878/thatsnoneofmy.jpg', 
+      footer: 'because it tastes terrible.',
+      image:'http://i0.kym-cdn.com/entries/icons/mobile/000/015/878/thatsnoneofmy.jpg',
+      color: '#000000' 
     };
   }
-  
+
 
   handleBackground({ target }) {
     this.setState({
@@ -23,40 +24,50 @@ export default class App extends Component {
     });
   }
 
+  handleNameChange({ target }) {
+    this.setState({ name: target.value });
+  } 
+
+  handleColorChange({ target }) {
+    this.setState({ color: target.value });
+  } 
   
   handleImageSrc({ target }) {
-    this.setStage({ image: target.value });
+    this.setState({ image: target.value });
   }
 
+  handleHeaderChange({ target }) {
+    this.setState({ header: target.value });
+  }
+
+  handleFooterChange({ target }) {
+    this.setState({ footer: target.value });
+  }
+
+  handleUpload({ target }) {
+    const reader = new FileReader();
+    
+    reader.readAsDataURL(target.files[0]);
+    reader.onLoad = () => {
+      this.setState({ image: reader.result });
+    };
+  }
+     
   handleExport() {
     dom2image.toMeme(this.imageExport).then(meme => {
       fileSaver.saveAs(meme, 'meme.png');
     });
   }
 
-  handleUpload({ target }) {
-    const reader = new FileReader();
-
-    reader.readAsDataURL(target.files[0]);
-    reader.onLoad = () => {
-      this.setState({ background: reader.result });
-    };
-  }
-
 
   render() {
-    const { background, image, content, current } = this.state;
-
-    //const meme = {
-    //  text: content,
-    //  f: current
-    //};
+    const { header, footer, image, color } = this.state;
 
     return (
       <main>
         <div className="meme">
           <header>
-            <h1 className="app-title">
+            <h1>
             Meme-Maker
             </h1>
           </header>
