@@ -59,7 +59,7 @@ export default class App extends Component {
 
 
   render() {
-    const { header, footer, image, color, selected } = this.state;
+    const { header, footer, image, selected } = this.state;
 
     return (
       <main>
