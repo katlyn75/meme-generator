@@ -10,15 +10,15 @@ export default class App extends Component {
     super();
 
     this.state = {
-      header: 'I don\'t always drink tea',
+      header: 'I don\'t often drink tea...',
       footer: 'because it tastes terrible.',
       image:'http://i0.kym-cdn.com/entries/icons/mobile/000/015/878/thatsnoneofmy.jpg',
-      color: '#000000' 
+      text: '' 
     };
   }
 
   handleTextChange({ target }) {
-    this.setState({ name: target.value });
+    this.setState({ text: target.value });
   } 
 
   handleColorChange({ target }) {
@@ -63,28 +63,28 @@ export default class App extends Component {
             <h1>
               Meme-Maker
             </h1>
-            <label>
+          </header>
+          <div className="inputs">
+            <label className="labels">
               File Upload:
               <input type="file" onChange={event => this.handleUpload(event)} placeholder="File"/>&nbsp;
               Image URL: 
               <input type="url" value={image} onChange={event => this.handleImgSrc(event)} placeholder="URL"/>&nbsp;
               Meme Text:
               <input type="text" onChange={event => this.handleImageSrc(event)}placeholder="Meme Text"/>&nbsp;
-            </label> 
-          </header>
-          <div className="image" ref={node => this.ImageExport = node}>
+            </label>
+          </div> 
+          <div className="image-container" ref={node => this.ImageExport = node}>
             <section className="meme-header">
               {header}
-              <img src={image}/>
             </section>
+            <img src={image}/>
             <section className="meme-footer">
               {footer}
             </section>
-            <section className="button">
-              <button onClick={() => this.handleExport()}>
-              Export Meme
-              </button>
-            </section>
+            <button onClick={() => this.handleExport()}>
+            Export meme
+            </button>
           </div>
           <footer>
             Meme Your Mom 2018

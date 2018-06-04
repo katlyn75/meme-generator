@@ -10,45 +10,43 @@ h1 {
   color: blue;
 }
 
-.image {
-  z-index: 1;
+.image-container {
+  z-index: 0;
   height: auto;
-  max-width: 95%;
+  max-width: 100%;
   text-align: center;
+  color: blue;
 }
 
-.search-bars {
-  width: 95%;
-  padding: 1em;
-  display: inline-flex;
-}
-
-label {
-  height: 2em;
+.label {
+  height: 3em;
   width: auto;
-  display: block;
+  display: inline-flex space-between;
+
 }
 
 .meme-header {
-  z-index: 2;
-  color: black;
+  z-index: 1;
+  color: white;
   position: relative;
-  padding-top: 2.5em;
+  padding-top: 1em;
   font-size: 24pt;
   width: 100%; 
 }
 
 .meme-footer {
-  z-index: 2;
-  color: black;
+  z-index: 1;
+  color: white;
   position: relative;
-  padding-bottom: 1.5em;
-  font-size: 24pt; 
+  padding-bottom: 1em;
+  font-size: 24pt;
+  width: 100%; 
 }
 
 button {
   height: 3em;
   width: 15em;
+  color: blue;
 }
 
 footer {
