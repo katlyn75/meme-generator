@@ -61,7 +61,7 @@ export default class App extends Component {
 
 
   render() {
-    const { header, footer, image, color } = this.state;
+    const { header, footer, image } = this.state;
 
     return (
       <main>
@@ -86,6 +86,9 @@ export default class App extends Component {
               <img src={image}/>
             </div>
           </fieldset>
+          <footer>
+            Meme Your Mom 2018
+          </footer>
         </div>
       </main>
     );

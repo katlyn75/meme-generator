@@ -12,16 +12,27 @@ h1 {
   font-size: 26pt;
   text-align: center;
   padding-top: 1em;
+  color: blue;
 }
 
 .image {
   height: auto;
   max-width: 95%;
+  background: blue;
+  text-align: center;
 }
 
 .search-bars {
   width: 95%;
   padding: 1em;
   display: inline-flex;
+}
+
+footer {
+  background: white;
+  width: auto;
+  color: black;
+  text-align: center;
+  font-size: 14pt;
 }
 
